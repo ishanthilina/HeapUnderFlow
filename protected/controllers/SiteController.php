@@ -12,13 +12,13 @@ class SiteController extends Controller
 			'captcha'=>array(
 				'class'=>'CCaptchaAction',
 				'backColor'=>0xFFFFFF,
-			),
+				),
 			// page action renders "static" pages stored under 'protected/views/site/pages'
 			// They can be accessed via: index.php?r=site/page&view=FileName
 			'page'=>array(
 				'class'=>'CViewAction',
-			),
-		);
+				),
+			);
 	}
 
 	/**
@@ -60,9 +60,9 @@ class SiteController extends Controller
 				$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
 				$subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
 				$headers="From: $name <{$model->email}>\r\n".
-					"Reply-To: {$model->email}\r\n".
-					"MIME-Version: 1.0\r\n".
-					"Content-Type: text/plain; charset=UTF-8";
+				"Reply-To: {$model->email}\r\n".
+				"MIME-Version: 1.0\r\n".
+				"Content-Type: text/plain; charset=UTF-8";
 
 				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
 				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
@@ -103,7 +103,18 @@ class SiteController extends Controller
 	 */
 	public function actionLogout()
 	{
-		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
-	}
+		$assigned_roles = Yii::app()->authManager->getRoles(Yii::app()->user->id); //obtains all assigned roles for this user id
+    if(!empty($assigned_roles)) //checks that there are assigned roles
+    {
+        $auth=Yii::app()->authManager; //initializes the authManager
+        foreach($assigned_roles as $n=>$role)
+        {
+            if($auth->revoke($n,Yii::app()->user->id)) //remove each assigned role for this user
+                Yii::app()->authManager->save(); //again always save the result
+            }
+        }
+        
+    Yii::app()->user->logout(); //logout the user
+    $this->redirect(Yii::app()->homeUrl); //redirect the user
+}
 }
