@@ -152,4 +152,13 @@ class Question extends CActiveRecord
         return true;
 
     }
+
+    /**
+     * Override after delete to clean up answers
+     */
+    protected function afterDelete()
+    {
+    	parent::afterDelete();
+    	Answer::model()->deleteAll('question_id='.$this->id);
+    }
 }
