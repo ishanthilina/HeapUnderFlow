@@ -162,4 +162,14 @@ class Question extends CActiveRecord
     	parent::afterDelete();
     	Answer::model()->deleteAll('question_id='.$this->id);
     }
+
+    public function addAnswer($answer)
+    {
+    	// if(Yii::app()->params['commentNeedApproval'])
+    	// 	$comment->status=Comment::STATUS_PENDING;
+    	// else
+    	// 	$comment->status=Comment::STATUS_APPROVED;
+    	$answer->question_id=$this->id;
+    	return $answer->save();
+    }
 }

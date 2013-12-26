@@ -51,9 +51,14 @@ class QuestionController extends Controller
 	 */
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+		$question=$this->loadModel($id);
+    	$answer=$this->newAnswer($question);
+
+ 
+    	$this->render('view',array(
+        	'model'=>$question,
+        	'answer'=>$answer,
+    	));
 	}
 
 	/**
@@ -182,5 +187,22 @@ class QuestionController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	protected function newAnswer($question)
+	{
+		$answer=new Answer;
+		if(isset($_POST['Answer']))
+		{
+			$answer->attributes=$_POST['Answer'];
+			if($question->addAnswer($answer))
+			{
+				// if($answer->status==Comment::STATUS_PENDING)
+				Yii::app()->user->setFlash('success','Thank you for your answer.');
+				// echo "string";
+			}
+		}
+
+		return $answer;
 	}
 }

@@ -13,6 +13,14 @@ return array (
     'description' => 'Can answer questions',
     'bizRule' => '',
     'data' => '',
+    'assignments' => 
+    array (
+      2 => 
+      array (
+        'bizRule' => NULL,
+        'data' => NULL,
+      ),
+    ),
   ),
   'admin' => 
   array (

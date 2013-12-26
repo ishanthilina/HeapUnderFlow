@@ -34,6 +34,8 @@ $this->menu=array(
 	),
 )); ?>
 
+
+
 <div id="answers">
 	<h3>
             <?php echo $model->answerCount . ' answer(s)'; ?>
@@ -42,6 +44,25 @@ $this->menu=array(
             'question'=>$model,
             'answers'=>$model->answers,
         )); ?>
+
+<?php if(Yii::app()->user->checkAccess('teacher')): ?>
+ 
+    <h3>Your Answer:</h3>
+
+    <?php
+    foreach(Yii::app()->user->getFlashes() as $key => $message) {
+        echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
+    }
+?>
+
+     <?php 
+
+     $answer = Answer::model();
+     $this->renderPartial('/answer/_form',array(
+            'model'=>$answer,
+            'questionId'=>$model->id,
+        )); ?>
+<?php endif; ?>
 
     
 </div>
