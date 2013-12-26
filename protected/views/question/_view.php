@@ -5,17 +5,16 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<!-- <b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+	<br /> -->
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('title')); ?>:</b>
-	<?php echo CHtml::encode($data->title); ?>
-	<br />
+	<h2><?php if ($data->resolved == 1) echo "[Solved]"; ?>
+	<?php echo CHtml::encode($data->title); ?></h2>
+	<!-- <br /> -->
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('content')); ?>:</b>
-	<?php echo CHtml::encode($data->content); ?>
-	<br />
+	<p><?php echo CHtml::encode($data->content); ?></p>
+	<!-- <br /> -->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('tags')); ?>:</b>
 	<?php echo CHtml::encode($data->tags); ?>

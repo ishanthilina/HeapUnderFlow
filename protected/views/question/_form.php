@@ -37,11 +37,11 @@
 		<?php echo $form->error($model,'tags'); ?>
 	</div>
 
-	<!-- <div class="row">
+	<div class="row">
 		<?php echo $form->labelEx($model,'resolved'); ?>
 		<?php echo $form->textField($model,'resolved'); ?>
 		<?php echo $form->error($model,'resolved'); ?>
-	</div> -->
+	</div> 
 
 	<!-- <div class="row">
 		<?php echo $form->labelEx($model,'score'); ?>
