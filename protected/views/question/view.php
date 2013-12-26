@@ -41,9 +41,7 @@ $this->menu=array(
 			echo CHtml::link("Delete",Yii::app()->controller->createUrl("delete",array("id"=>$model->id)));
 			// echo ;
 		}
-		else
-			echo Yii::app()->user->id;
-
+		
 	?>
 </div>
 

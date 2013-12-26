@@ -33,7 +33,7 @@ class QuestionController extends Controller
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','delete'),
-				'users'=>array('@'),
+				'roles'=>array('user'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin'),
@@ -115,18 +115,32 @@ class QuestionController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		// check if this user can delete this post
+		if(Yii::app()->user->checkAccess('user')){
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax'])){
-			// if the user is admin
-			if(Yii::app()->user->checkAccess('admin'))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-			else
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('question/'));
+			if(Yii::app()->user->id == $this->loadModel($id)->author_id){
+
+				$this->loadModel($id)->delete();
+
+				// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+				if(!isset($_GET['ajax'])){
+					// if the user is admin
+					if(Yii::app()->user->checkAccess('admin'))
+						$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+					else
+						$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('question/'));
+				}
+			}
+
+			else{
+				throw new CHttpException(401,"You don't have permission to delete this");
+			}
+
+
 		}
 
-			
+
+
 	}
 
 	/**

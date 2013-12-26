@@ -15,7 +15,7 @@ class AnswerController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			// 'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -32,11 +32,11 @@ class AnswerController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'actions'=>array('create','update','delete'),
+				'roles'=>array('teacher'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -110,11 +110,29 @@ class AnswerController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		// check if this user can delete this post
+		if(Yii::app()->user->checkAccess('teacher')){
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			if(Yii::app()->user->id == $this->loadModel($id)->author_id){
+
+				$this->loadModel($id)->delete();
+
+				// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+				if(!isset($_GET['ajax'])){
+					// if the user is admin
+					if(Yii::app()->user->checkAccess('admin'))
+						$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+					else
+						$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('question/'));
+				}
+			}
+
+			else{
+				throw new CHttpException(401,"You don't have permission to delete this");
+			}
+
+
+		}
 	}
 
 	/**
