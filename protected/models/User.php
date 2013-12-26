@@ -124,4 +124,14 @@ class User extends CActiveRecord
     {
         return CPasswordHelper::hashPassword($password);
     }
+
+    /**
+     * Hash the password before saving the user
+     * @return boolean Whether the model should be saved or not
+     */
+    public function beforeSave()
+    {
+    	$this->password = $this->hashPassword($this->password);
+    	return true;
+    }
 }
