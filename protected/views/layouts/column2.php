@@ -8,14 +8,9 @@
 <div class="span-5 last">
 	<div id="sidebar">
 	<?php
-		$this->beginWidget('zii.widgets.CPortlet', array(
-			'title'=>'Operations',
-		));
-		$this->widget('zii.widgets.CMenu', array(
-			'items'=>$this->menu,
-			'htmlOptions'=>array('class'=>'operations'),
-		));
-		$this->endWidget();
+	if(Yii::app()->user->checkAccess('admin')) $this->widget('AdminMenu');  
+	elseif(Yii::app()->user->checkAccess('user')) $this->widget('UserMenu'); 
+	elseif (Yii::app()->user->checkAccess('teacher')) $this->widget('TeacherMenu')
 	?>
 	</div><!-- sidebar -->
 </div>
