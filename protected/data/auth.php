@@ -1,25 +1,53 @@
-return array(
-    'user' => array (
-        'type'=>CAuthItem::TYPE_ROLE,
-        'description'=>'Can only post questions',
-        'bizRule'=>'',
-        'data'=>''
-   ),
- 
-    'teacher' => array (
-        'type'=>CAuthItem::TYPE_ROLE,
-        'description'=>'Can answer questions',
-        'bizRule'=>'',
-        'data'=>''
+<?php
+return array (
+  'user' => 
+  array (
+    'type' => 2,
+    'description' => 'Can only post questions',
+    'bizRule' => '',
+    'data' => '',
+    'assignments' => 
+    array (
+      3 => 
+      array (
+        'bizRule' => NULL,
+        'data' => NULL,
+      ),
     ),
- 
-    'admin' => array (
-        'type'=>CAuthItem::TYPE_ROLE,
-        'description'=>'Can read a post and post a comment',
-        <!-- 'children'=>array(
-            'reader','commentor'
-        ), -->
-        'bizRule'=>'',
-        'data'=>''
-   )
+  ),
+  'teacher' => 
+  array (
+    'type' => 2,
+    'description' => 'Can answer questions',
+    'bizRule' => '',
+    'data' => '',
+    'assignments' => 
+    array (
+      2 => 
+      array (
+        'bizRule' => NULL,
+        'data' => NULL,
+      ),
+    ),
+  ),
+  'admin' => 
+  array (
+    'type' => 2,
+    'description' => 'Can read a post and post a comment',
+    'bizRule' => '',
+    'data' => '',
+    'children' => 
+    array (
+      0 => 'teacher',
+      1 => 'user',
+    ),
+    'assignments' => 
+    array (
+      1 => 
+      array (
+        'bizRule' => NULL,
+        'data' => NULL,
+      ),
+    ),
+  ),
 );

@@ -32,6 +32,10 @@ return array(
 
 	// application components
 	'components'=>array(
+		'authManager'=>array(
+            'class'=>'CPhpAuthManager',
+//          'authFile' => 'path'                  // only if necessary
+        ),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

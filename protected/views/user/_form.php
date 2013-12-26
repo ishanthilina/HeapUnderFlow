@@ -38,6 +38,12 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'role'); ?>
+		<?php echo $form->textField($model,'role',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->error($model,'role'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'score'); ?>
 		<?php echo $form->textField($model,'score'); ?>
 		<?php echo $form->error($model,'score'); ?>

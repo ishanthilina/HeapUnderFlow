@@ -8,6 +8,7 @@
  * @property string $username
  * @property string $password
  * @property string $email
+ * @property string $role
  * @property integer $score
  * @property string $profile
  *
@@ -35,11 +36,11 @@ class User extends CActiveRecord
 		return array(
 			array('username, password, email', 'required'),
 			array('score', 'numerical', 'integerOnly'=>true),
-			array('username, password, email', 'length', 'max'=>128),
+			array('username, password, email, role', 'length', 'max'=>128),
 			array('profile', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, password, email, score, profile', 'safe', 'on'=>'search'),
+			array('id, username, password, email, role, score, profile', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,6 +67,7 @@ class User extends CActiveRecord
 			'username' => 'Username',
 			'password' => 'Password',
 			'email' => 'Email',
+			'role' => 'Role',
 			'score' => 'Score',
 			'profile' => 'Profile',
 		);
@@ -93,6 +95,7 @@ class User extends CActiveRecord
 		$criteria->compare('username',$this->username,true);
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('email',$this->email,true);
+		$criteria->compare('role',$this->role,true);
 		$criteria->compare('score',$this->score);
 		$criteria->compare('profile',$this->profile,true);
 
@@ -111,4 +114,14 @@ class User extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function validatePassword($password)
+    {
+        return CPasswordHelper::verifyPassword($password,$this->password);
+    }
+ 
+    public function hashPassword($password)
+    {
+        return CPasswordHelper::hashPassword($password);
+    }
 }

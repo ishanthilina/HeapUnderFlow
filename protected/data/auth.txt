@@ -1,3 +1,4 @@
+<?php
 return array(
     'user' => array (
         'type'=>CAuthItem::TYPE_ROLE,
@@ -16,9 +17,9 @@ return array(
     'admin' => array (
         'type'=>CAuthItem::TYPE_ROLE,
         'description'=>'Can read a post and post a comment',
-        <!-- 'children'=>array(
-            'reader','commentor'
-        ), -->
+        'children'=>array(
+            'teacher','user'
+        ),
         'bizRule'=>'',
         'data'=>''
    )

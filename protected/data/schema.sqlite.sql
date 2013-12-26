@@ -13,6 +13,7 @@ CREATE TABLE tbl_user
 	username VARCHAR(128) NOT NULL,
 	password VARCHAR(128) NOT NULL,
 	email VARCHAR(128) NOT NULL,
+	role VARCHAR(128) NOT NULL,
 	score INTEGER DEFAULT 0,
 	profile TEXT
 );
@@ -59,9 +60,9 @@ CREATE TABLE tbl_tag
 	frequency INTEGER DEFAULT 1
 );
 
-INSERT INTO tbl_user (username, password, email) VALUES ('admin','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','user@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('teacher','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','teacher@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('user','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','admin@example.com');
+INSERT INTO tbl_user (username, password, email,role) VALUES ('admin','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','admin@example.com','admin');
+INSERT INTO tbl_user (username, password, email,role) VALUES ('teacher','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','teacher@example.com','teacher');
+INSERT INTO tbl_user (username, password, email,role) VALUES ('user','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','user@example.com','user');
 
 INSERT INTO tbl_question (title, content, create_time, update_time, author_id, tags) VALUES ('Welcome!','This is aquestion. blog system is developed using Yii. It is meant to demonstrate how to use Yii to build a complete real-world application. Complete source code may be found in the Yii releases.
 
