@@ -9,8 +9,8 @@
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br /> -->
 
-	<h2><?php if ($data->resolved == 1) echo "[Solved]"; ?>
-	<?php echo CHtml::encode($data->title); ?></h2>
+	<h2><?php $status=''; if ($data->resolved == 1) $status="[Solved]"; ?>
+	<?php echo CHtml::link($status.CHtml::encode($data->title),array('question/view', 'id'=>$data->id)); ?></h2>
 	<!-- <br /> -->
 
 	<p><?php echo CHtml::encode($data->content); ?></p>
