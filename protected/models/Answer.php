@@ -137,4 +137,15 @@ class Answer extends CActiveRecord
     		return false;
     }
 
+    /**
+	 * @return string the hyperlink display for the current comment's author
+	 */
+	public function getAuthorLink()
+	{
+		// if(!empty($this->url))
+		// 	return CHtml::link(CHtml::encode($this->author),$this->url);
+		// else
+			return CHtml::encode("$this->author");
+	}
+
 }

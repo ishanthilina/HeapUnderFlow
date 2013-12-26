@@ -58,6 +58,7 @@ class Question extends CActiveRecord
 		return array(
 			'answers' => array(self::HAS_MANY, 'Answer', 'question_id'),
 			'author' => array(self::BELONGS_TO, 'User', 'author_id'),
+			'answerCount' => array(self::STAT, 'Answer', 'question_id'),
 		);
 	}
 

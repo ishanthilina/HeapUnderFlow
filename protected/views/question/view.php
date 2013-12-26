@@ -16,14 +16,15 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Question #<?php echo $model->id; ?></h1>
+<h1><?php echo $model->title; ?></h1>
+<p><?php echo $model->content; ?></P>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id',
-		'title',
-		'content',
+		// 'id',
+		// 'title',
+		// 'content',
 		'tags',
 		'resolved',
 		'score',
@@ -32,3 +33,17 @@ $this->menu=array(
 		'author_id',
 	),
 )); ?>
+
+<div id="answers">
+	<h3>
+            <?php echo $model->answerCount . ' answer(s)'; ?>
+        </h3>
+        <?php $this->renderPartial('_answers',array(
+            'question'=>$model,
+            'answers'=>$model->answers,
+        )); ?>
+
+    
+</div>
+
+
