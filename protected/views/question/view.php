@@ -35,6 +35,17 @@ $this->menu=array(
 )); ?>
 
 
+<div id="toolbar">
+	<?php
+		if ($model->author_id == Yii::app()->user->id){
+			echo CHtml::link("Delete",Yii::app()->controller->createUrl("delete",array("id"=>$model->id)));
+			// echo ;
+		}
+		else
+			echo Yii::app()->user->id;
+
+	?>
+</div>
 
 <div id="answers">
 	<h3>

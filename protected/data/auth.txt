@@ -1,17 +1,40 @@
 <?php
 return array(
+   //  'updateQuestion'=>array(
+   //      'type'=>CAuthItem::TYPE_OPERATION,
+   //      'description'=>'update a Question',
+   //      'bizRule'=>'',
+   //      'data'=>''
+   // ),
+   //  'deleteQuestion'=>array(
+   //      'type'=>CAuthItem::TYPE_OPERATION,
+   //      'description'=>'Delete a Question',
+   //      'bizRule'=>'',
+   //      'data'=>''
+   // ),
+   //  'updateOwnQuestion'=>array(
+   //      'type'=>CAuthItem::TYPE_TASK,
+   //      'description'=>'Update a question by author himself',
+   //      'bizRule'=>'return Yii::app()->user->id==$params["question"]->authID;',
+   //      'data'=>'',
+   //      'children'=>array(
+   //          'updateQuestion'
+   //      )
+   // ),
     'user' => array (
         'type'=>CAuthItem::TYPE_ROLE,
         'description'=>'Can only post questions',
         'bizRule'=>'',
         'data'=>''
    ),
- 
     'teacher' => array (
         'type'=>CAuthItem::TYPE_ROLE,
         'description'=>'Can answer questions',
         'bizRule'=>'',
         'data'=>''
+        // 'children'=>array(
+        //     'updateOwnQuestion'
+        // )
     ),
  
     'admin' => array (
