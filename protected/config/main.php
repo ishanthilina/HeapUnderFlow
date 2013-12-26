@@ -37,6 +37,14 @@ return array(
             'class'=>'CPhpAuthManager',
 //          'authFile' => 'path'                  // only if necessary
         ),
+        'urlManager'=>array(
+            'urlFormat'=>'path',
+            'rules'=>array(
+                'post/<id:\d+>/<title:.*?>'=>'post/view',
+                'posts/<tag:.*?>'=>'post/index',
+                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+            ),
+        ),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

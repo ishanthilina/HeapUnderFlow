@@ -6,6 +6,14 @@ return array (
     'description' => 'Can only post questions',
     'bizRule' => '',
     'data' => '',
+    'assignments' => 
+    array (
+      3 => 
+      array (
+        'bizRule' => NULL,
+        'data' => NULL,
+      ),
+    ),
   ),
   'teacher' => 
   array (
@@ -24,14 +32,6 @@ return array (
     array (
       0 => 'teacher',
       1 => 'user',
-    ),
-    'assignments' => 
-    array (
-      1 => 
-      array (
-        'bizRule' => NULL,
-        'data' => NULL,
-      ),
     ),
   ),
 );
