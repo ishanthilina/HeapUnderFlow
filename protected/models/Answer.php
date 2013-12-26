@@ -34,7 +34,7 @@ class Answer extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('content, author_id, question_id', 'required'),
+			array('content, question_id', 'required'),
 			array('status, create_time, score, author_id, question_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -122,12 +122,19 @@ class Answer extends CActiveRecord
     }
 
     protected function beforeSave() {
-        if($this->isNewRecord) {
+
+    	if(parent::beforeSave()){
+
+    		if($this->isNewRecord) {
             # set time on creating posts
-            $this->create_time=time();
-        }
-        
-        return true;
+    			$this->create_time=time();
+    			$this->author_id=Yii::app()->user->id;
+    		}
+
+    		return true;
+    	}
+    	else
+    		return false;
     }
 
 }

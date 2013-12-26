@@ -25,29 +25,29 @@
 		<?php echo $form->error($model,'content'); ?>
 	</div>
 
-	<div class="row">
+	<!-- <div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
 		<?php echo $form->textField($model,'status'); ?>
 		<?php echo $form->error($model,'status'); ?>
-	</div>
+	</div> -->
 
-	<div class="row">
+	<!-- <div class="row">
 		<?php echo $form->labelEx($model,'create_time'); ?>
 		<?php echo $form->textField($model,'create_time'); ?>
 		<?php echo $form->error($model,'create_time'); ?>
-	</div>
+	</div> -->
 
-	<div class="row">
+	<!-- <div class="row">
 		<?php echo $form->labelEx($model,'score'); ?>
 		<?php echo $form->textField($model,'score'); ?>
 		<?php echo $form->error($model,'score'); ?>
-	</div>
+	</div> -->
 
-	<div class="row">
+	<!-- <div class="row">
 		<?php echo $form->labelEx($model,'author_id'); ?>
 		<?php echo $form->textField($model,'author_id'); ?>
 		<?php echo $form->error($model,'author_id'); ?>
-	</div>
+	</div> -->
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'question_id'); ?>

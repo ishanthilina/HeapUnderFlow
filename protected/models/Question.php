@@ -36,7 +36,7 @@ class Question extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, content, author_id', 'required'),
+			array('title, content', 'required'),
 			array('resolved, score, create_time, update_time, author_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>128),
 			array('tags', 'match', 'pattern'=>'/^[\w\s,]+$/',
@@ -144,6 +144,7 @@ class Question extends CActiveRecord
     	if($this->isNewRecord) {
             # set time on creating posts
             $this->create_time=$this->update_time=time();
+            $this->author_id=Yii::app()->user->id;
         }
         else
             # changes time at updating the post
