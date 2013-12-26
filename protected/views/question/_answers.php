@@ -15,7 +15,7 @@
 
 	<div class="toolbar">
 		<?php
-		if ($answer->author_id == Yii::app()->user->id){
+		if ($answer->author_id == Yii::app()->user->id or Yii::app()->user->checkAccess('admin')){
 			echo CHtml::link("Delete",Yii::app()->controller->createUrl("answer/delete",array("id"=>$answer->id,
 				'returnUrl'=>Yii::app()->controller->createUrl("question/view",array("id"=>$question->id)))));
 

@@ -116,9 +116,9 @@ class QuestionController extends Controller
 	public function actionDelete($id)
 	{
 		// check if this user can delete this post
-		if(Yii::app()->user->checkAccess('user')){
+		if(Yii::app()->user->checkAccess('user') or Yii::app()->user->checkAccess('admin')){
 
-			if(Yii::app()->user->id == $this->loadModel($id)->author_id){
+			if(Yii::app()->user->id == $this->loadModel($id)->author_id or Yii::app()->user->checkAccess('admin')){
 
 				$this->loadModel($id)->delete();
 

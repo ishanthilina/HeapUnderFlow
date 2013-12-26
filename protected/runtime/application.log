@@ -2312,3 +2312,45 @@ Stack trace:
 REQUEST_URI=/so/index.php?r=answer/delete&id=23&returnUrl=%2Fso%2Findex.php%3Fr%3Dquestion%2Fview%26id%3D12
 HTTP_REFERER=http://localhost/so/index.php?r=question/view&id=12
 ---
+2013/12/26 19:19:52 [error] [exception.CHttpException.401] exception 'CHttpException' with message 'You don't have permission to delete this' in /opt/lampp/htdocs/so/protected/controllers/AnswerController.php:131
+Stack trace:
+#0 [internal function]: AnswerController->actionDelete('24')
+#1 /opt/lampp/htdocs/so/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(AnswerController), Array)
+#2 /opt/lampp/htdocs/so/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(AnswerController), Object(ReflectionMethod), Array)
+#3 /opt/lampp/htdocs/so/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /opt/lampp/htdocs/so/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /opt/lampp/htdocs/so/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /opt/lampp/htdocs/so/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /opt/lampp/htdocs/so/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /opt/lampp/htdocs/so/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /opt/lampp/htdocs/so/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /opt/lampp/htdocs/so/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /opt/lampp/htdocs/so/yii/framework/web/CWebApplication.php(282): CController->run('delete')
+#12 /opt/lampp/htdocs/so/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('answer/delete')
+#13 /opt/lampp/htdocs/so/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /opt/lampp/htdocs/so/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/so/index.php?r=answer/delete&id=24&returnUrl=%2Fso%2Findex.php%3Fr%3Dquestion%2Fview%26id%3D13
+HTTP_REFERER=http://localhost/so/index.php?r=question/view&id=13
+---
+2013/12/26 19:21:06 [error] [exception.CHttpException.401] exception 'CHttpException' with message 'You don't have permission to delete this' in /opt/lampp/htdocs/so/protected/controllers/QuestionController.php:136
+Stack trace:
+#0 [internal function]: QuestionController->actionDelete('13')
+#1 /opt/lampp/htdocs/so/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(QuestionController), Array)
+#2 /opt/lampp/htdocs/so/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(QuestionController), Object(ReflectionMethod), Array)
+#3 /opt/lampp/htdocs/so/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /opt/lampp/htdocs/so/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /opt/lampp/htdocs/so/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /opt/lampp/htdocs/so/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /opt/lampp/htdocs/so/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /opt/lampp/htdocs/so/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /opt/lampp/htdocs/so/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /opt/lampp/htdocs/so/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /opt/lampp/htdocs/so/yii/framework/web/CWebApplication.php(282): CController->run('delete')
+#12 /opt/lampp/htdocs/so/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('question/delete')
+#13 /opt/lampp/htdocs/so/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /opt/lampp/htdocs/so/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/so/index.php?r=question/delete&id=13
+HTTP_REFERER=http://localhost/so/index.php?r=question/view&id=13
+---

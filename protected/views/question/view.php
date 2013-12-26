@@ -37,7 +37,7 @@ $this->menu=array(
 
 <div id="toolbar">
 	<?php
-		if ($model->author_id == Yii::app()->user->id){
+		if ($model->author_id == Yii::app()->user->id or Yii::app()->user->checkAccess('admin')){
 			echo CHtml::link("Delete",Yii::app()->controller->createUrl("delete",array("id"=>$model->id)));
 			// echo ;
 		}
