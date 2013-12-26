@@ -28,7 +28,7 @@ class QuestionController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','search'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -178,6 +178,19 @@ class QuestionController extends Controller
 			$model->attributes=$_GET['Question'];
 
 		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
+
+	public function actionSearch()
+	{
+		// $dataProvider=new CActiveDataProvider('Question');
+		$model=new Question('search');
+		if(isset($_GET['Question']))
+			$model->attributes=$_GET['Question'];
+
+		$this->render('search',array(
+			// 'dataProvider'=>$dataProvider,
 			'model'=>$model,
 		));
 	}
