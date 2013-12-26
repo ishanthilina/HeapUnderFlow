@@ -122,10 +122,23 @@ class QuestionController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Question');
+		$criteria=new CDbCriteria(array(
+			'order'=>'update_time DESC',
+			));
+		if(isset($_GET['tag']))
+			$criteria->addSearchCondition('tags',$_GET['tag']);
+		
+
+		$dataProvider=new CActiveDataProvider('Question', array(
+			'pagination'=>array(
+				'pageSize'=>10,
+				),
+			'criteria'=>$criteria,
+			));
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-		));
+			));
 	}
 
 	/**

@@ -12,7 +12,13 @@ $this->menu=array(
 );
 ?>
 
-<h1>Questions</h1>
+<?php if(!empty($_GET['tag'])): ?>
+<h1>Questions Tagged with <i><?php echo CHtml::encode($_GET['tag']); ?></i></h1>
+<?php else: ?>
+	<h1>Questions</h1>
+<?php endif; ?>
+
+
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
