@@ -8,7 +8,7 @@
 </div>
 
 <?php
-$this->widget('zii.widgets.grid.CGridView', array(
+$this->widget('bootstrap.widgets.TbGridView', array(
 	// 'id'=>'question-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
