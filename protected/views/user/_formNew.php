@@ -39,7 +39,7 @@
 
 	<div class="row">
 		<?php echo $form->dropDownListControlGroup($model, 'role',
-        array('admin'=>'Admin', 'teacher'=>'Teacher','user'=>'User')); ?>
+        array('teacher'=>'Teacher','user'=>'User')); ?>
 	</div>
 
 	<div class="row">

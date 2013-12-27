@@ -15,4 +15,11 @@ $this->menu=array(
 
 <h1>Create User</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php
+	if(Yii::app()->user->checkAccess('admin')){
+		$this->renderPartial('_form', array('model'=>$model)); 
+	}else{
+		$this->renderPartial('_formNew', array('model'=>$model)); 
+	}
+ 
+ ?>
