@@ -6,8 +6,9 @@
 
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'question-form',
+	// 'layout' => TbHtml::FORM_LAYOUTHORIZONTAL,
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -20,27 +21,31 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'title'); ?>
-		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'title'); ?>
+		<?php echo $form->textFieldControlGroup($model, 'title',array('size'=>100,'maxlength'=>128,'span' => 5)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'content'); ?>
-		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'content'); ?>
+
+		<?php echo $form->textAreaControlGroup($model, 'content',
+        array('span' => 7, 'rows' => 5)); ?>
+
+		
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'tags'); ?>
-		<?php echo $form->textArea($model,'tags',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'tags'); ?>
+		<?php echo $form->textAreaControlGroup($model, 'tags',
+        array('span' => 4, 'rows' => 2)); ?>
+
+		
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'resolved'); ?>
-		<?php echo $form->textField($model,'resolved'); ?>
-		<?php echo $form->error($model,'resolved'); ?>
+
+		<?php echo $form->dropDownListControlGroup($model, 'resolved',
+        array('0', '1')); ?>
+
+
+		
 	</div> 
 
 	<!-- <div class="row">
@@ -67,9 +72,14 @@
 		<?php echo $form->error($model,'author_id'); ?>
 	</div> -->
 
-	<div class="row buttons">
+	<!-- <div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
+	</div> -->
+
+	<?php echo TbHtml::formActions(array(
+		TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Update', array('color' => TbHtml::BUTTON_COLOR_PRIMARY)),
+		TbHtml::resetButton('Reset'),
+		)); ?>
 
 <?php $this->endWidget(); ?>
 
