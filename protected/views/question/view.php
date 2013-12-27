@@ -28,8 +28,8 @@ $this->menu=array(
 		'tags',
 		'resolved',
 		'score',
-		'create_time',
-		'update_time',
+		// 'create_time',
+		// 'update_time',
 		'author_id',
 	),
 )); ?>
