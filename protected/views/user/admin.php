@@ -44,6 +44,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'id'=>'user-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
+	'type' => TbHtml::GRID_TYPE_STRIPED,
 	'columns'=>array(
 		// 'id',
 		'username',

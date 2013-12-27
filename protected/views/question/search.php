@@ -12,6 +12,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 	// 'id'=>'question-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
+	'type' => TbHtml::GRID_TYPE_STRIPED,
 	'columns'=>array(
 		// 'id',
 		'title',
