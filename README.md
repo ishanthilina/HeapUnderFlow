@@ -1,7 +1,7 @@
 About
 ======
 This a toy project that was created to simulate a simple question/answer site. The project was started by the author to learn about PHP and boostrap(on which he had no knowledge at all prior to this project)  The web app is built using the the Yii framework. 
-You can access a live demo of the web app using (http://ishans.info/projects/HeapUnderFlow/)[this link].
+You can access a live demo of the web app using [this link](http://ishans.info/projects/HeapUnderFlow/).
 How to get it working?
 ======================
 * Clone the project to your **public_html** folder.
