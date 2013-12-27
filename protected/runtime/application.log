@@ -2645,3 +2645,15 @@ Stack trace:
 REQUEST_URI=/so/index.php/question/admin
 HTTP_REFERER=http://localhost/so/index.php/question/search
 ---
+2013/12/27 07:02:50 [warning] [application] Failed to set unsafe attribute "id" of "Question".
+in /opt/lampp/htdocs/so/protected/controllers/QuestionController.php (178)
+in /opt/lampp/htdocs/so/index.php (13)
+2013/12/27 07:02:53 [warning] [application] Failed to set unsafe attribute "id" of "Question".
+in /opt/lampp/htdocs/so/protected/controllers/QuestionController.php (178)
+in /opt/lampp/htdocs/so/index.php (13)
+2013/12/27 07:02:54 [warning] [application] Failed to set unsafe attribute "id" of "Question".
+in /opt/lampp/htdocs/so/protected/controllers/QuestionController.php (178)
+in /opt/lampp/htdocs/so/index.php (13)
+2013/12/27 07:02:55 [warning] [application] Failed to set unsafe attribute "id" of "Question".
+in /opt/lampp/htdocs/so/protected/controllers/QuestionController.php (178)
+in /opt/lampp/htdocs/so/index.php (13)
