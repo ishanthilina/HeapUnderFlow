@@ -7,6 +7,15 @@ $this->breadcrumbs=array(
 	$model->title,
 );
 
+
+
+Yii::app()->clientScript->registerScript(
+   'myHideEffect',
+   '$(".flash-success").animate({opacity: 1.0}, 3000).fadeOut("slow");',
+   CClientScript::POS_READY
+);
+
+
 $this->menu=array(
 	array('label'=>'List Question', 'url'=>array('index')),
 	array('label'=>'Create Question', 'url'=>array('create')),

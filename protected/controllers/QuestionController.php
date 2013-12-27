@@ -232,7 +232,7 @@ class QuestionController extends Controller
 			if($question->addAnswer($answer))
 			{
 				// if($answer->status==Comment::STATUS_PENDING)
-				Yii::app()->user->setFlash('success','Thank you for your answer.');
+				Yii::app()->user->setFlash(TbHtml::ALERT_COLOR_SUCCESS,'Thank you for your answer.');
 				// echo "string";
 			}
 		}
