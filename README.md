@@ -16,7 +16,7 @@ Username    |   Password    | Role
 ------------|---------------|------------------------------
 admin       |   demo        | Admin can carry out any task.
 user        |   demo        | Can ask questions
-teacher     |   demo       | Can answer questions
+teacher     |   demo        | Can answer questions
 ```
 
 REST Commands
