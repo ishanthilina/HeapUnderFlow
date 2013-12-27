@@ -42,7 +42,7 @@
 	<div class="row">
 
 		<?php echo $form->dropDownListControlGroup($model, 'resolved',
-        array('0', '1')); ?>
+        array('0'=>'Not Resolved', '1'=>'Resolved')); ?>
 
 
 		
