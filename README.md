@@ -4,11 +4,13 @@ This a toy project that was created to simulate a simple question/answer site. T
 How to get it working?
 ======================
 * Clone the project to your **public_html** folder.
-* Go to **protected/data/** folder and execute the following command to reset the database. (**huf** is the name of the database I am using for the web app)
+* Go to **protected/data/** folder and execute the following command to reset the database. (**huf** is the name of the database I am using for the web app).
+
 ```
 sqlite3 huf.db < so.sql
 ```
 * Now the product is ready to be used. It has three default users (you can always add more later).
+
 ```
 Username    |   Password    | Role
 ------------|---------------|------------------------------
