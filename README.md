@@ -19,7 +19,7 @@ user        |   demo        | Can ask questions
 teacher     |    demo       | Can answer questions
 ```
 
-Working REST Commands
+REST Commands
 =====================
 The product has built-in REST support. Following are the supported REST commands. Please note that the commands marked with (*) needs to be authenticated
 by setting the X_USERNAME and X_PASSWORD headers in the request. (This can be done by setting the X-USERNAME and
