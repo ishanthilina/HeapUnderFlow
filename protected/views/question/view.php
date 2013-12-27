@@ -36,12 +36,18 @@ $this->menu=array(
 
 
 <div id="toolbar">
+	<br>
 	<?php
-		if ($model->author_id == Yii::app()->user->id or Yii::app()->user->checkAccess('admin')){
-			echo CHtml::link("Delete",Yii::app()->controller->createUrl("delete",array("id"=>$model->id)));
+	if ($model->author_id == Yii::app()->user->id or Yii::app()->user->checkAccess('admin')){
+			// echo CHtml::link("Delete",Yii::app()->controller->createUrl("delete",array("id"=>$model->id)));
+		echo TbHtml::buttonGroup(array(
+			array('label' => 'Update','url'=>Yii::app()->controller->createUrl("update",array("id"=>$model->id))),
+			array('label' => 'Delete','url'=>Yii::app()->controller->createUrl("delete",array("id"=>$model->id))),
+    // array('label' => 'Right'),
+			));
 			// echo ;
-		}
-		
+	}
+
 	?>
 </div>
 
