@@ -42,11 +42,11 @@
         array('teacher'=>'Teacher','user'=>'User')); ?>
 	</div>
 
-	<div class="row">
+	<!-- <div class="row">
 		<?php echo $form->labelEx($model,'score'); ?>
 		<?php echo $form->textField($model,'score'); ?>
 		<?php echo $form->error($model,'score'); ?>
-	</div>
+	</div> -->
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'profile'); ?>
