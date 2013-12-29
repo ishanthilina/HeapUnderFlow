@@ -25,15 +25,18 @@ $this->menu=array(
 );
 ?>
 
-<div style="width: auto;word-break: break-all" ><h1><?php echo nl2br($model->title); ?></h1></div> by <?php 
+<div style="width: auto;word-break: break-all" ><h1><?php echo nl2br($model->title); ?></h1></div> 
+
+ <?php 
 
 $user = User::model()->findByPk($model->author_id);
+$userLink="";
 		if(is_null($user)){
 			
-			echo CHtml::encode("A deleted user");
+			$userLink= CHtml::encode("A deleted user");
 		}
 		else{
-			echo CHtml::link(User::model()->findByPk($model->author_id)->username,
+			$userLink= CHtml::link(User::model()->findByPk($model->author_id)->username,
 			Yii::app()->controller->createUrl("user/view",array("id"=>$model->author_id,
 				)));
 		}
@@ -51,8 +54,14 @@ $user = User::model()->findByPk($model->author_id);
 		// 'title',
 		// 'content',
 		'tags',
-		'resolved',
+		// 'resolved',
 		'score',
+		array('label'=>'Resolved',
+            'type'=>'raw',
+            'value'=>($model->resolved==1?"yes":"no")),
+		array('label'=>'Author',
+            'type'=>'raw',
+            'value'=>($userLink)),
 		// 'create_time',
 		// 'update_time',
 		// 'author_id',
@@ -61,7 +70,7 @@ $user = User::model()->findByPk($model->author_id);
 
 
 <div id="toolbar">
-	<br>
+	<!-- <br> -->
 	<?php
 	if ($model->author_id == Yii::app()->user->id or Yii::app()->user->checkAccess('admin')){
 			// echo CHtml::link("Delete",Yii::app()->controller->createUrl("delete",array("id"=>$model->id)));
