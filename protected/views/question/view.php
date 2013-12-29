@@ -25,7 +25,9 @@ $this->menu=array(
 );
 ?>
 
-<h1><?php echo $model->title; ?></h1>
+<h1><?php echo $model->title; ?></h1> by <?php echo CHtml::link(User::model()->findByPk($model->author_id)->username,
+			Yii::app()->controller->createUrl("user/view",array("id"=>$model->author_id,
+				))) ?>
 <p><?php echo $model->content; ?></P>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
@@ -39,7 +41,7 @@ $this->menu=array(
 		'score',
 		// 'create_time',
 		// 'update_time',
-		'author_id',
+		// 'author_id',
 	),
 )); ?>
 

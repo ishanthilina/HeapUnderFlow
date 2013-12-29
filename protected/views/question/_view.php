@@ -32,15 +32,29 @@
 	<?php echo CHtml::encode(date('F j, Y \a\t h:i a',$data->create_time)); ?>
 	<br />
 
-	<?php /*
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('update_time')); ?>:</b>
 	<?php echo CHtml::encode($data->update_time); ?>
-	<br />
+	<br/>
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('author_id')); ?>:</b>
-	<?php echo CHtml::encode($data->author_id); ?>
-	<br />
+	
+	
 
-	*/ ?>
+	<?php
+		$user = User::model()->findByPk($data->author_id);
+		if(is_null($user)){
+			
+			echo CHtml::encode("A deleted user");
+		}
+		else{
+			echo CHtml::link(User::model()->findByPk($data->author_id)->username,
+			Yii::app()->controller->createUrl("user/view",array("id"=>$data->author_id,
+				)));
+		}
+	?>
+	<br/>
+
+	
 
 </div>
