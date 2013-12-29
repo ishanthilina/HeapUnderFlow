@@ -4,7 +4,8 @@
 
 $this->breadcrumbs=array(
 	'Users'=>array('index'),
-	$model->id,
+	User::model()->findByPk($model->id)->username,
+	
 );
 
 $this->menu=array(
@@ -23,7 +24,7 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'username',
-		'password',
+		// 'password',
 		'email',
 		'role',
 		'score',

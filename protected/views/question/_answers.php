@@ -2,7 +2,11 @@
 <div class="answers" id="<?php echo $answer->id; ?>">
 
 	
-		<?php echo $answer->author_id; ?> says:
+		<b><?php echo CHtml::link(User::model()->findByPk($answer->author_id)->username,
+			Yii::app()->controller->createUrl("user/view",array("id"=>$answer->author_id,
+				))) ?></b> says:
+
+		
 	
 
 	<div class="time">
