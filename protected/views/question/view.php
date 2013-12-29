@@ -25,9 +25,21 @@ $this->menu=array(
 );
 ?>
 
-<h1><?php echo $model->title; ?></h1> by <?php echo CHtml::link(User::model()->findByPk($model->author_id)->username,
+<h1><?php echo $model->title; ?></h1> by <?php 
+
+$user = User::model()->findByPk($model->author_id);
+		if(is_null($user)){
+			
+			echo CHtml::encode("A deleted user");
+		}
+		else{
+			echo CHtml::link(User::model()->findByPk($model->author_id)->username,
 			Yii::app()->controller->createUrl("user/view",array("id"=>$model->author_id,
-				))) ?>
+				)));
+		}
+		
+
+				?>
 <p><?php echo $model->content; ?></P>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
@@ -57,6 +69,12 @@ $this->menu=array(
     // array('label' => 'Right'),
 			));
 			// echo ;
+	}
+	else{
+		echo TbHtml::buttonGroup(array(
+			array('label' => 'Vote Up','url'=>Yii::app()->controller->createUrl("voteup",array("id"=>$model->id))),
+			array('label' => 'Vote Down','url'=>Yii::app()->controller->createUrl("votedown",array("id"=>$model->id))),
+			));
 	}
 
 	?>
