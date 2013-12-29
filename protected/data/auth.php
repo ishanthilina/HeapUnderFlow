@@ -6,14 +6,6 @@ return array (
     'description' => 'Can only post questions',
     'bizRule' => '',
     'data' => '',
-    'assignments' => 
-    array (
-      13 => 
-      array (
-        'bizRule' => NULL,
-        'data' => NULL,
-      ),
-    ),
   ),
   'teacher' => 
   array (

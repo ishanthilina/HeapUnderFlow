@@ -64,13 +64,13 @@ INSERT INTO tbl_user (username, password, email,role) VALUES ('admin','$2a$10$JT
 INSERT INTO tbl_user (username, password, email,role) VALUES ('teacher','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','teacher@example.com','teacher');
 INSERT INTO tbl_user (username, password, email,role) VALUES ('user','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','user@example.com','user');
 
-INSERT INTO tbl_question (title, content, create_time, update_time, author_id, tags) VALUES ('Welcome!','This is aquestion. blog system is developed using Yii. It is meant to demonstrate how to use Yii to build a complete real-world application. Complete source code may be found in the Yii releases.
+INSERT INTO tbl_question (title, content, create_time, update_time, author_id, tags) VALUES ('How to post a question..?','How can I post a question in this Question/Answer site..? Please help',1230952187,1230952187,3,'yii, blog');
+INSERT INTO tbl_question (title, content, create_time, update_time, author_id, tags) VALUES ('A Test Question', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 1230952187,1230952187,3,'test');
+INSERT INTO tbl_question (title, content, create_time, update_time, author_id, tags) VALUES ('insert update array delete from class', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 1230952187,1230952187,3,'test');
+INSERT INTO tbl_question (title, content, create_time, update_time, author_id, tags) VALUES ('image codeigniter database select from class', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 1230952187,1230952187,3,'test');
 
-Feel free to try this system by writing new posts and leaving comments.',1230952187,1230952187,3,'yii, blog');
-INSERT INTO tbl_question (title, content, create_time, update_time, author_id, tags) VALUES ('A Test Post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 1230952187,1230952187,3,'test');
+INSERT INTO tbl_answer (content, create_time, author_id, question_id) VALUES ('First register to the system as a user, then login using that account. Click on the new question on the side bar and post your question.', 1230952187, 2,1);
 
-INSERT INTO tbl_answer (content, create_time, author_id, question_id) VALUES ('This is a test comment.', 1230952187, 2,1);
-
-INSERT INTO tbl_tag (name) VALUES ('yii');
-INSERT INTO tbl_tag (name) VALUES ('blog');
-INSERT INTO tbl_tag (name) VALUES ('test');
+INSERT INTO tbl_tag (name) VALUES ('howdy');
+INSERT INTO tbl_tag (name) VALUES ('hard');
+INSERT INTO tbl_tag (name) VALUES ('easy');
