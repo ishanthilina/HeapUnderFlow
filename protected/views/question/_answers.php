@@ -17,17 +17,31 @@
 		<?php echo nl2br(CHtml::encode($answer->content)); ?>
 	</div>
 
+	<div class="content">
+		<b>Score</b> : <?php echo nl2br(CHtml::encode($answer->score)); ?>
+	</div>
+
 	<div class="toolbar">
 		<?php
 		if ($answer->author_id == Yii::app()->user->id or Yii::app()->user->checkAccess('admin')){
-			echo CHtml::link("Delete",Yii::app()->controller->createUrl("answer/delete",array("id"=>$answer->id,
-				'returnUrl'=>Yii::app()->controller->createUrl("question/view",array("id"=>$question->id)))));
+			// echo CHtml::link("Delete",Yii::app()->controller->createUrl("answer/delete",array("id"=>$answer->id,
+			// 	'returnUrl'=>Yii::app()->controller->createUrl("question/view",array("id"=>$question->id)))));
+
+			echo TbHtml::buttonGroup(array(
+			array('label' => 'Delete','url'=>Yii::app()->controller->createUrl("answer/delete",array("id"=>$answer->id))),
+			// array('label' => 'Vote Up','url'=>Yii::app()->controller->createUrl("update",array("id"=>$answer->id))),
+			// array('label' => 'Vote Down','url'=>Yii::app()->controller->createUrl("delete",array("id"=>$answer->id))),
+			));
 
 
 			// echo ;
 		}
 		else
-			echo Yii::app()->user->id;
+			echo TbHtml::buttonGroup(array(
+			// array('label' => 'Update','url'=>Yii::app()->controller->createUrl("update",array("id"=>$answer->id))),
+			array('label' => 'Vote Up','url'=>Yii::app()->controller->createUrl("answer/voteup",array("id"=>$answer->id))),
+			array('label' => 'Vote Down','url'=>Yii::app()->controller->createUrl("answer/votedown",array("id"=>$answer->id))),
+			));
 
 	?>
 	</div>

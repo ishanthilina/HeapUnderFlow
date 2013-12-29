@@ -31,6 +31,9 @@ class AnswerController extends Controller
 				'actions'=>array('index','view','search'),
 				'users'=>array('*'),
 			),
+			array('allow',
+				'actions'=>array('voteup','votedown'),
+				'users'=>array('@')),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','delete'),
 				'roles'=>array('teacher'),
@@ -199,6 +202,50 @@ class AnswerController extends Controller
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
+		}
+	}
+
+	/**
+	 * Upvotes the given answer
+	 * @param  integer $id Question ID
+	 */
+	public function actionVoteUp($id)
+	{
+		$model=Answer::model()->findByPk($id);
+		$currentScore = $model->score;
+		$currentScore = $currentScore + 5;
+		$model->score = $currentScore;
+
+		// get the user
+		$user = User::model()->findByPk($model->author_id);
+		$currentScore = $user->score;
+		$currentScore = $currentScore + 5;
+		$user->score = $currentScore;
+
+		if($model->save() and $user->save()){
+				$this->redirect(array('view','id'=>$model->id));
+		}
+	}
+
+	/**
+	 * Down votes the given answer
+	 * @param  integer $id Question ID
+	 */
+	public function actionVoteDown($id)
+	{
+		$model=Answer::model()->findByPk($id);
+		$currentScore = $model->score;
+		$currentScore = $currentScore - 5;
+		$model->score = $currentScore;
+
+		// get the user
+		$user = User::model()->findByPk($model->author_id);
+		$currentScore = $user->score;
+		$currentScore = $currentScore - 5;
+		$user->score = $currentScore;
+
+		if($model->save() and $user->save()){
+				$this->redirect(array('view','id'=>$model->id));
 		}
 	}
 }

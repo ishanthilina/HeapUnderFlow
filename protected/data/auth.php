@@ -33,13 +33,5 @@ return array (
       0 => 'teacher',
       1 => 'user',
     ),
-    'assignments' => 
-    array (
-      1 => 
-      array (
-        'bizRule' => NULL,
-        'data' => NULL,
-      ),
-    ),
   ),
 );

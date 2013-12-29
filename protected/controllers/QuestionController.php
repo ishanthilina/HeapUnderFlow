@@ -129,7 +129,7 @@ class QuestionController extends Controller
 				if(!isset($_GET['ajax'])){
 					// if the user is admin
 					if(Yii::app()->user->checkAccess('admin'))
-						$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+						$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('question/'));
 					else
 						$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('question/'));
 				}
