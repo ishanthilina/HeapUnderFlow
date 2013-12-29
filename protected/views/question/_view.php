@@ -9,11 +9,11 @@
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br /> -->
 
-	<h2><?php $status=''; if ($data->resolved == 1) $status="[Solved]"; ?>
-	<?php echo CHtml::link($status.CHtml::encode($data->title),array('question/view', 'id'=>$data->id)); ?></h2>
+	<div style="width: auto;word-break: break-all" ><h2><?php $status=''; if ($data->resolved == 1) $status="[Solved]"; ?>
+	<?php echo CHtml::link($status.CHtml::encode($data->title),array('question/view', 'id'=>$data->id)); ?></h2></div>
 	<!-- <br /> -->
 
-	<p><?php echo CHtml::encode($data->content); ?></p>
+	<div style="width: auto;word-break: break-all" ><p><?php echo CHtml::encode($data->content); ?></p></div>
 	<!-- <br /> -->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('tags')); ?>:</b>
@@ -33,9 +33,9 @@
 	<br />
 
 	
-	<b><?php echo CHtml::encode($data->getAttributeLabel('update_time')); ?>:</b>
+	<!-- <b><?php echo CHtml::encode($data->getAttributeLabel('update_time')); ?>:</b>
 	<?php echo CHtml::encode($data->update_time); ?>
-	<br/>
+	<br/> -->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('author_id')); ?>:</b>
 	

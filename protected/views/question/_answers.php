@@ -14,7 +14,8 @@
 	</div>
 
 	<div class="content">
-		<?php echo nl2br(CHtml::encode($answer->content)); ?>
+		<div style="width: auto;word-break: break-all" > <?php echo nl2br(CHtml::encode($answer->content)); ?>
+		</div>
 	</div>
 
 	<div class="content">

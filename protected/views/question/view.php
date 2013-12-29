@@ -25,7 +25,7 @@ $this->menu=array(
 );
 ?>
 
-<h1><?php echo nl2br($model->title); ?></h1> by <?php 
+<div style="width: auto;word-break: break-all" ><h1><?php echo nl2br($model->title); ?></h1></div> by <?php 
 
 $user = User::model()->findByPk($model->author_id);
 		if(is_null($user)){
@@ -41,8 +41,8 @@ $user = User::model()->findByPk($model->author_id);
 
 				?>
 
-				
-<p><?php echo nl2br($model->content); ?></P>
+
+<div style="width: auto;word-break: break-all" ><?php echo nl2br($model->content); ?></div>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
